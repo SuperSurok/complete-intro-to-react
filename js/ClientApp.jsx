@@ -18,4 +18,4 @@ const App = () => (
   </BrowserRouter>
 );
 
-render(<App />, document.getElementById('app'));
+render(<App />, document.getElementById("app"));
