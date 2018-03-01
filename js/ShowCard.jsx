@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled.div`
+const Image = styled.img`
     width: 46%;
     float: left;
     margin-right: 10px;
