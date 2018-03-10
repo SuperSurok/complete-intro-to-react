@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import { shallow } from "enzyme";
-import  preload from "../../data.json";
+import preload from "../../data.json";
 import Search from "../Search";
 import ShowCard from "../ShowCard";
 
@@ -15,4 +15,14 @@ test("Search should render correct amount of shows", () => {
   expect(component.find(ShowCard).length).toEqual(preload.shows.length);
 });
 
-xtest("Search should renderer correct amount of based on search term", () => {});
+test("Search should renderer correct amount of based on search term", () => {
+  const searchWord = "black";
+  const component = shallow(<Search />);
+  component.find("input").simulate("change", { target: { value: searchWord } });
+  const showCard = preload.shows.filter(show =>
+    `${show.title} ${show.description}`
+      .toUpperCase()
+      .indexOf(searchWord.toUpperCase()) >= 0
+  ).length;
+  expect(component.find(ShowCard).length).toEqual(showCard);
+});
