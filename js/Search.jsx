@@ -4,7 +4,8 @@ import preload from '../data.json';
 
 class Search extends Component {
   state = {
-    searchTerm: ''
+    searchTerm: '',
+    version: 5
   };
   handleSearchTermChange = event => {
     this.setState({ searchTerm: event.target.value });
